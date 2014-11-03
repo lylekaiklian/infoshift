@@ -1,0 +1,107 @@
+.large-2.columns.floating{:style => "position: fixed; z-index: 1000;"}
+  %ul
+    %li
+      %a.floating-links{:href => "#grid"} home
+    %li
+      %a.floating-links{:href => "#tabs"} culture
+    %li
+      %a.floating-links{:href => "#buttons"} projects
+    %li
+      %a.floating-links{:href => "#grid"} team
+    %li
+      %a.floating-links{:href => "#tabs"} careers
+    %li
+      %a.floating-links{:href => "#buttons"} contacts
+.large-12.columns.first
+  .large-6.columns.text-center.large-offset-3
+    %img{:src => "/assets/lgoo-white.png"}
+  .row.text-center
+    .large-10.columns.links.large-offset-1
+      %a.large-2.columns{:href => '#'} home
+      %a.large-2.columns{:href => '#'} culture
+      %a.large-2.columns{:href => '#'} projects
+      %a.large-2.columns{:href => '#'} team
+      %a.large-2.columns{:href => '#'} careers
+      %a.large-2.columns{:href => '#'} contacts
+.large-12.columns.second
+  .large-10.columns.large-offset-2
+    %h3.text-right.div-title Infoshift Culture
+    %hr
+    %p.content-texts
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    .row
+    .large-5.columns
+      %h4.div-title Goals
+      %p.content-texts
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    .large-5.columns
+      %h4.div-title Vision
+      %p.content-texts
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+
+.large-12.columns.third
+  %h3.text-center.div-title products
+  %p.text-center.content-texts.large-8.columns.large-offset-2 We’re a small yet well-adept team that can help you with design, development, and consulting for applications, web sites, brands, and more. We have our own products, which we list below.
+  %br
+  .large-10.columns.large-offset-1.grid
+    .large-4.columns
+      .products-image
+      .products-content
+    .large-4.columns
+      .products-image
+      .products-content
+    .large-4.columns
+      .products-image
+      .products-content
+
+.large-12.columns.fourth
+  %h3.text-center.div-title our team
+  %p.text-center.content-texts.large-8.columns.large-offset-2 We’re a small yet well-adept team that can help you with design, development, and consulting for applications, web sites, brands, and more. We have our own products.
+
+.large-12.columns.fifth
+  %h3.text-center.div-title join the club
+  %p.text-center.content-texts.large-8.columns.large-offset-2 We’re a small yet well-adept team that can help you with design, development, and consulting for applications, web sites, brands, and more. We have our own products, which we list below.
+  .row
+  .large-8.columns.large-offset-2
+    %dl.accordion{"data-accordion" => ""}
+      %dd.accordion-navigation
+        %a.text-center{:href => "#panel1"} Project Manager
+        #panel1.content.content-texts
+          Panel 2. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      %dd.accordion-navigation
+        %a.text-center{:href => "#panel2"} Account Manager
+        #panel2.content.content-texts
+          Panel 2. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      %dd.accordion-navigation
+        %a.text-center{:href => "#panel3"} Web Developer
+        #panel3.content
+          Panel 3. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      %dd.accordion-navigation
+        %a.text-center{:href => "#panel4"} Front End Developer
+        #panel4.content.content-texts
+          Panel 3. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+.large-12.columns.contact-us
+  .large-10.columns.large-offset-1
+    .large-4.columns
+      %h1.div-title.text-center talk to us
+  .row
+  .large-6.columns.right.contact-form
+    %input{:placeholder => "what does your mom call you", :type => "text"}
+    %input{:placeholder => "where can we email you back", :type => "text"}
+    %textarea{:placeholder => "what is your concern?"}
+
+:javascript
+  $('.first').bind('inview', function(event, visible) {
+    if (!visible) {
+      $('.floating').stop().animate({ opacity: 1 });
+    } else {
+      $('.floating').stop().animate({ opacity: 0 });
+    }
+  });
+
+  $('.products-image').hover(function(){
+    $(this).next().addClass('show-div');
+    }, function() {
+  });
