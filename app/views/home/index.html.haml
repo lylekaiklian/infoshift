@@ -1,29 +1,29 @@
 .large-2.columns.floating{:style => "position: fixed; z-index: 1000;"}
-  %ul
+  %ul.mainnav
     %li
-      %a.floating-links{:href => "#grid"} home
+      %a.floating-links{:href => "#first"} home
     %li
-      %a.floating-links{:href => "#tabs"} culture
+      %a.floating-links{:href => "#second"} culture
     %li
-      %a.floating-links{:href => "#buttons"} projects
+      %a.floating-links{:href => "#third"} projects
     %li
-      %a.floating-links{:href => "#grid"} team
+      %a.floating-links{:href => "#fourth"} team
     %li
-      %a.floating-links{:href => "#tabs"} careers
+      %a.floating-links{:href => "#fifth"} careers
     %li
-      %a.floating-links{:href => "#buttons"} contacts
-.large-12.columns.first
+      %a.floating-links{:href => "#contact-us"} contacts
+.large-12.columns.first#first
   .large-6.columns.text-center.large-offset-3
     %img{:src => "/assets/lgoo-white.png"}
   .row.text-center
-    .large-10.columns.links.large-offset-1
-      %a.large-2.columns{:href => '#'} home
-      %a.large-2.columns{:href => '#'} culture
-      %a.large-2.columns{:href => '#'} projects
-      %a.large-2.columns{:href => '#'} team
-      %a.large-2.columns{:href => '#'} careers
-      %a.large-2.columns{:href => '#'} contacts
-.large-12.columns.second
+    .large-10.columns.links.large-offset-1.mainnav-1
+      %a.large-2.columns{:href => '#first'} home
+      %a.large-2.columns{:href => '#second'} culture
+      %a.large-2.columns{:href => '#third'} projects
+      %a.large-2.columns{:href => '#fourth'} team
+      %a.large-2.columns{:href => '#fifth'} careers
+      %a.large-2.columns{:href => '#contact-us'} contacts
+.large-12.columns.second#second
   .large-10.columns.large-offset-2
     %h3.text-right.div-title Infoshift Culture
     %hr
@@ -40,7 +40,7 @@
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 
-.large-12.columns.third
+.large-12.columns.third#third
   %h3.text-center.div-title products
   %p.text-center.content-texts.large-8.columns.large-offset-2 We’re a small yet well-adept team that can help you with design, development, and consulting for applications, web sites, brands, and more. We have our own products, which we list below.
   %br
@@ -55,11 +55,11 @@
       .products-image
       .products-content
 
-.large-12.columns.fourth
+.large-12.columns.fourth#fourth
   %h3.text-center.div-title our team
   %p.text-center.content-texts.large-8.columns.large-offset-2 We’re a small yet well-adept team that can help you with design, development, and consulting for applications, web sites, brands, and more. We have our own products.
 
-.large-12.columns.fifth
+.large-12.columns.fifth#fifth
   %h3.text-center.div-title join the club
   %p.text-center.content-texts.large-8.columns.large-offset-2 We’re a small yet well-adept team that can help you with design, development, and consulting for applications, web sites, brands, and more. We have our own products, which we list below.
   .row
@@ -82,7 +82,7 @@
         #panel4.content.content-texts
           Panel 3. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
-.large-12.columns.contact-us
+.large-12.columns.contact-us#contact-us
   .large-10.columns.large-offset-1
     .large-4.columns{:style => "margin-left: 18px;"}
       %h1.div-title.text-center talk to us
@@ -94,6 +94,44 @@
     .button.right{:role => "button", :tabindex => "0"} Shoot
 
 :javascript
+  $(document).ready(function() {
+
+    $('ul.mainnav a').smoothScroll();
+    $('.mainnav-1 a').smoothScroll();
+
+    $('p.subnav a').click(function(event) {
+      event.preventDefault();
+      var link = this;
+      $.smoothScroll({
+        scrollTarget: link.hash
+      });
+    });
+
+    $('#change-speed').on('click', function() {
+      var $p1 = $('ul.mainnav a').first(),
+          p1Opts = $p1.smoothScroll('options') || {};
+
+      p1Opts.speed = p1Opts.speed === 1400 ? 400 : 1400;
+      $p1.smoothScroll('options', p1Opts);
+    });
+
+    $('button.scrollsomething').click(function() {
+      $.smoothScroll({
+        scrollElement: $('div.scrollme'),
+        scrollTarget: '#findme'
+      });
+      return false;
+    });
+    $('button.scrollhorz').click(function() {
+      $.smoothScroll({
+        direction: 'left',
+        scrollElement: $('div.scrollme'),
+        scrollTarget: '.horiz'
+      });
+      return false;
+    });
+
+  });
   $('.first').bind('inview', function(event, visible) {
     if (!visible) {
       $('.floating').stop().animate({ opacity: 1 });
