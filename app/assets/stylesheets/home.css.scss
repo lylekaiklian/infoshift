@@ -6,6 +6,8 @@ main {
   margin: 0;
 }
 
+$infoshift-blue: #235496;
+
 .floating {
 	position: fixed;
 	opacity: 0;
@@ -13,6 +15,7 @@ main {
 	ul {
 		list-style-type: none;
 		li {
+			margin-bottom: 5px;
 			a {
 		    font-family: intro;
 			text-decoration: none;
@@ -21,15 +24,16 @@ main {
 			letter-spacing: 3px;
 			font-weight: lighter;
 			padding: 10px 5px 5px 10px;
+			background-color: #252525;
 
-			-webkit-transition: all .25s ease;
-	           -moz-transition: all .25s ease;
-	      -o-transition:      all .25s ease;
-	      transition:      all .25s ease;
+			-webkit-transition: all .2s ease;
+	           -moz-transition: all .2s ease;
+	      -o-transition:      all .2s ease;
+	      transition:      all .2s ease;
 		  }
 
 		  a:hover {
-		  	background-color: #252525;
+		  	background-color: $infoshift-blue;
 		  }
 		}
 	}
