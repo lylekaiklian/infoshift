@@ -8,6 +8,18 @@ main {
 
 $infoshift-blue: #235496;
 
+@font-face {
+    font-family: 'intro';
+    src: font-url('Intro.eot');
+    src: font-url('Intro.eot?#iefix') format('embedded-opentype'),
+         font-url('Intro.woff') format('woff'),
+         font-url('Intro.ttf') format('truetype'),
+         font-url('Intro.svg#open_sansregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 .floating {
 	position: fixed;
 	opacity: 0;
@@ -49,7 +61,7 @@ $infoshift-blue: #235496;
 	.links {
 		margin-bottom: 20px;
 		a {
-			font-family: intro;
+			font-family: 'Intro' !important;
 			text-decoration: none;
 			text-transform: uppercase;
 			color: #e6e6e6;
@@ -67,7 +79,7 @@ $infoshift-blue: #235496;
 }
 
 .div-title {
-	font-family: intro;
+	font-family: "Intro";
 	color: #252525;
 	text-transform: uppercase;
 	font-weight: 200;
