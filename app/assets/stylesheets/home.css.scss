@@ -53,7 +53,10 @@ $infoshift-blue: #235496;
 
 .first {
 	height: auto; 
-	background-color: #252525;
+	// background-color: #252525;
+	background: url(gears.png);
+	background-size: cover;
+	background-repeat: no-repeat;
 	padding: 0px 50px 50px 50px;
 
 	
